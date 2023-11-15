@@ -1,0 +1,25 @@
+php error notes
+
+Refresh: there should not be any space after Refresh
+header('Refresh: 2; URL = login.php');
+
+Php errors will be shown in /var/log/apache2/error.log
+
+
+
+$handle = fopen('/tmp/debug.log', 'ab');
+
+function addLog($handle, $log)
+{
+  /* Datetime to add at the beginning of the log line. */
+  $date = date('d/m/Y H:i:s');
+  
+  /* Complete log line. */
+  $line = $date . ' ' . $log . "\n";
+  
+  /* Add the new line to the log file. */
+  fwrite($handle, $line);
+}
+
+
+ini_set('display_errors', '1');
